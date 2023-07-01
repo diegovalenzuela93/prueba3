@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Prueba3</title>
+</head>
+<body  onload="listarFuncionarios()">
+  <header>
+    <nav class="navbar navbar-expand-lg" data-bs-theme="dark" style="background-color: #303030;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Funcionarios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contratos</a>
+            <li class="nav-item">
+              <a class="nav-link">Departamentos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">Municipio</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- TABLA -->
+    <div class="principal">
+      <div id="contenidos">
+        <div id="titulo">
+          <h4>Lista Funcionarios Municipales</h4>
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <span class="material-symbols-outlined">person_add</span>
+            Añadir
+          </button>
+        </div>
+        <div id="tabla">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Rut</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Contacto </th>
+                <th scope="col">Email</th>
+                <th scope="col">Departamento</th>
+                <th scope="col">Municipalidad</th>
+                <th scope="col">Tipo Contrato</th>
+                <th scope="col">Sueldo</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody class="datos">
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- BORRARRR -->
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdropp" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Eliminar</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <H6>Desea eliminar el item seleccionado?</H6>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" onclick="eliminar(idFuncionario)">Eliminar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal AÑADIR/EDITAR -->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel"><span class="material-symbols-outlined">person_add</span>Añadir Funcionario</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form action="" class="formulario" id="form-data">
+                  <div class="input-flex rut-flex">
+                    <label for="rut">Rut:</label>
+                    <input class="form-control form-control-sm" type="number" id="rut" name="rut">
+                    <label for="dv" id="label-dv">-</label>
+                    <input class="form-control form-control-sm" type="text" maxlength="1" id="dv" name="dv">
+                  </div>
+                  <div class="input-flex">
+                    <label for="nombre">Nombre</label>
+                    <input class="form-control form-control-sm" type="text" id="nombre" name="nombre" maxlength="15" placeholder="Ingrese su nombre">
+                  </div>
+                  <div class="input-flex">
+                    <label for="ape-pat">Primer Apellido</label>
+                    <input class="form-control form-control-sm" type="text" id="ape-pat" name = "apellido-paterno" maxlength="15" placeholder="Ingrese apellido paterno">
+                  </div>
+                  <div class="input-flex">
+                    <label for="ape-mat">Segundo Apellido</label>
+                    <input class="form-control form-control-sm" type="text" id="ape-mat" name="apellido-materno" maxlength="15" placeholder="Ingrese apellido materno">
+                  </div>
+                  <div class="input-flex">
+                    <label for="telefono">Celular</label>
+                    <input class="form-control form-control-sm" type="number" id="telefono" name="telefono" placeholder="Ej. 56993075644">
+                  </div>
+                  <div class="input-flex">
+                    <label for="mail">Email</label>
+                    <input class="form-control form-control-sm" type="email" id="mail" name="email" placeholder="ejemplo@mail.cl">
+                  </div>
+                  <hr>
+
+                  <div class="menu-opciones">
+                    <div id="div-muni">
+                      <div class="column-gap-1">
+                        <label for="muni">Municipalidad</label>
+                        <select class="form-select form-select-sm" id="muni">
+                          <option selected>Escoje una opción</option><hr><br>
+                          
+                        </select>
+                      </div>
+                      <div class="column-gap-1">
+                        <label for="depa">Departamento</label>
+                        <select class="form-select form-select-sm" id="depa">
+                          <option selected>Escoje una opción</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div id="div-contrato">
+                      <div class="column-gap-1">
+                        <label for="tipo-contrato">Tipo de contrato</label>
+                        <select class="form-select form-select-sm" id="tipo-contrato">
+                          <option selected>Escoje una opción</option>
+                        </select>
+                      </div>
+                      <div class="column-gap-1">
+                        <label for="sueldo">Sueldo</label>
+                        <input class="form-control form-control-sm" type="number" id="sueldo" name="sueldo" placeholder="Ingrese en $">
+                      </div>
+                    </div>
+                  </div>
+              </form>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" id="btn-añadir" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="agregar()">
+                <span class="material-symbols-outlined">person_add</span>
+                Añadir
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+
+    
+
+  </main>
+  <footer>
+
+  </footer>
+
+  <script src="js/funcionario.js"></script>
+</body>
+</html>

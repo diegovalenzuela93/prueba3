@@ -1,0 +1,140 @@
+html, body {
+    height: 100%;
+    background-color: rgb(220, 220, 220);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+
+.principal {
+    margin: 30px 0;
+    width: 78%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 10px 10px 18px rgba(0, 0, 0, 0.149);
+}
+
+
+#contenidos {
+    margin: 20px 22px;
+    width: 75vw;
+    border-radius: 10px;   
+}
+
+#titulo {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(33, 65, 101);
+    color: white;
+    padding: 20px 45px;
+}
+
+    #titulo button, .modal-footer button {
+        display: flex;
+    }
+
+    .material-symbols-outlined {
+        margin-right: 2px;
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
+    }
+
+    #tabla {
+        width: 100%;
+        font-size: 14px;
+        text-align: left;
+    }
+
+.btns-tabla{
+    display: flex;
+    flex-direction: row;
+}
+
+    .btn-sm {
+        margin: 3px;
+    }
+
+    .logo-acciones {
+        font-size: 18px;
+    }
+
+/* ENTRADAS MODAL */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.modal-header h1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.formulario label {
+    width: 188px;
+}
+
+.input-flex {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0;
+}
+    .rut-flex label {
+        width: 132px;
+    }
+
+        .rut-flex #label-dv{
+            width: 15px;
+            margin-left: 10px;
+        }
+
+    #rut {
+        width: 80px;
+    }
+
+    #dv{
+        width: 30px;
+    }
+
+.menu-opciones #div-muni, #div-contrato {
+    display: flex;
+    flex-direction: row;
+}
+
+.column-gap-1 {
+    margin-right:25px ;
+}
+
+    .column-gap-1 select {
+        width: 13.8rem;
+    }
+
+.menu-opciones #div-contrato label {
+    width: 200px;
+    margin-top: 15px;
+}
+
+#div-contrato select {
+    margin-bottom: 20px;
+}
+
+#div-contrato input {
+    width: 13.8rem
+}
+
+#exampleModal {
+    z-index: 2;
+}
